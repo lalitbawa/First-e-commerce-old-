@@ -1,0 +1,115 @@
+.carousal_heading{
+    font-size: 1.3rem;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 5rem;
+}
+
+.carousal_container{
+    display: flex;
+    margin-top: 3rem;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.review{
+    height: 18rem;
+    width: 25rem;
+    margin: 0 0.5rem 1rem 0.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.review img{
+    height: 4rem;
+}
+
+.review_image{
+    display: flex;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.review_image_2{
+    margin-left: 1rem;
+}
+
+.review p{
+    font-size: 0.7rem;
+}
+
+.review h5{
+    margin-top: 3rem;
+}
+
+.review_content img{
+    height: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.review_content p{
+    margin-top: 1rem;
+}
+
+#second_cor,
+#third_cor{
+    display: flex;
+}
+
+.cor_button_container{
+    display: none;
+}
+
+#prev_cor{
+    margin: 0 1rem 0 1rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
+}
+#next_cor{
+    margin: 0 1rem 0 1rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: flex;
+}
+
+@media screen and (max-width:995px) {
+    .cor_button_container{
+        display: flex;
+    }
+    #second_cor,
+    #third_cor{
+    display: none;
+    }
+    .carousal_container{
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .review{
+        height: 16rem;
+        width: 21rem;
+    }
+    .review p{
+        font-size: 0.65rem;
+    }
+    .review h4{
+        font-size: 0.8rem;
+    }
+    .review h5{
+        font-size: 0.7rem;
+        margin-top: 1.5rem;
+    }
+    .carousal_heading{
+        font-size: 1rem;
+        margin-top: 3rem;
+    }
+    .carousal_container{
+        margin-top: 1rem;
+    }
+}

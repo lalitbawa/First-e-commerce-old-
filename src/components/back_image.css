@@ -1,0 +1,19 @@
+.image_back img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#image_explore{
+    position: absolute;
+    top: 59%;
+    left: 8%;
+}
+
+
+@media screen and (max-width:550px) {
+    .image_back img{
+        display: flex;
+    }
+
+}
