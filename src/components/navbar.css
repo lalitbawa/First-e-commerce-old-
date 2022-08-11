@@ -65,12 +65,17 @@ nav img{
 	top: 0;
 	right: -50%;
 	width: auto;
-	min-height: 100vh;
+	height: 100vh;
 	display: block;
 	background-color: white;
 	transition: 0.4s;
-    overflow:scroll;
+    overflow:auto;
     z-index: 5000;
+    scrollbar-width: none;
+}
+
+.ham-menu::-webkit-scrollbar{
+    display: none;
 }
 
 .ham-menu.is-active{
@@ -139,6 +144,7 @@ nav img{
     margin: 0.1rem 0 0.1rem 0;
     font-weight: 500;
     cursor: pointer;
+    background-color: rgb(238, 236, 236);
 }
 
 .ham-items-men a,
@@ -172,7 +178,7 @@ nav img{
 
 .hupload{
     width: 100%;
-    margin-top: 1rem;
+    margin:1rem 0 2rem 0;
 }
 
 .ham-items-handmade{
