@@ -18,7 +18,7 @@ const FooterFront = () => {
       </ul>
       </div>
       <div className="footer_end">
-      <p>Made by Lalit Bawa. Website is construction right now.</p>
+      <p>Made by Lalit Bawa. Website is under construction right now.</p>
       </div>
     </div>
   )
