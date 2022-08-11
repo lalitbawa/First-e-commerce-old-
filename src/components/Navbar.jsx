@@ -1,6 +1,7 @@
 import React from 'react'
 import './navbar.css'
 import logo from '../assets/logo.png'
+import {Link} from 'react-router-dom'
 
 const Navbar2 = () => {
 
@@ -37,7 +38,7 @@ const openH = ()=>{
                         <a href="#">What's New</a>
                     </li>
                     <li>
-                        <a href="#">Men</a>
+                        <Link to='/menclothing'>Men</Link>
                     </li>
                     <li>
                         <a href="#">Women</a>
