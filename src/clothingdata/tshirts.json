@@ -1,5 +1,5 @@
 [
-    {
+    {   "id" : 1,
         "brand" : "gucci",
         "color" : "blue",
         "price" : 400,
@@ -7,7 +7,7 @@
         "gender": "male",
         "itemlink" : "https://media.gucci.com/style/HEXEAF2DC_Center_0_0_800x800/1651184118/548334_XJEOV_4684_001_100_0000_Light-Cotton-jersey-T-shirt-with-Gucci-palms.jpg"
     },
-    {
+    {   "id" : 2,
         "brand" : "gucci",
         "color" : "white",
         "price" :"600",
@@ -15,7 +15,7 @@
         "gender": "male",
         "itemlink" : "https://media.gucci.com/style/HEXEAF2DC_Center_0_0_800x800/1658339126/708678_XJERS_9133_001_100_0000_Light-Gucci-Lovelight-cotton-T-shirt.jpg"
     },
-    {
+    {   "id" : 3,
         "brand" : "hackett",
         "color" : "green",
         "price" : 500,
@@ -23,7 +23,7 @@
         "gender": "male",
         "itemlink" : "https://www.hackett.com/dw/image/v2/BCDD_PRD/on/demandware.static/-/Sites-hkt-master-catalog/default/dw0f07c0d3/images/hi-res/HM500533_6FT_01_MO.jpg?sw=800&q=90"
     },
-    {
+    {   "id" : 4,
         "brand" : "hackett",
         "color" : "red",
         "price" : 700,

@@ -1,10 +1,12 @@
-#mentshirt_container{
+.mentshirt_container{
     margin-top: 5rem;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-#mentshirt_container img{
-    height: 40vh;
-    width: auto;
+.mentshirt_container img{
+    width: 20rem;
+    height: auto;
+    margin: 1rem;
 }

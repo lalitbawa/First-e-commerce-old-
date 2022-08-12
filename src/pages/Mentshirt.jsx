@@ -4,21 +4,17 @@ import tshirtdata from '../clothingdata/tshirts.json'
 import { useState } from 'react'
 
 const Mentshirt = () => {
-const [datas, setdatas] = useState()
-
-    const mapfunc = (e)=>{
-        setdatas(<img src={e.itemlink} alt="" />)
-    }
-    
-    tshirtdata.map(mapfunc)
-
+const [tshirts, setdatas] = useState(tshirtdata.map(
+  data => (
+    <img key={data.id} src={data.itemlink} alt="" />
+  )
+))
 
   return (
-    <div id='mentshirt_container'>
+    <div className='mentshirt_container'>
         {
-            datas
+            tshirts
         }
-        <img src="" alt="" />
     </div>
   )
 }
