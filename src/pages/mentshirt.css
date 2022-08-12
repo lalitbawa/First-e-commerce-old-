@@ -1,0 +1,10 @@
+#mentshirt_container{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+#mentshirt_container img{
+    height: 40vh;
+    width: auto;
+}

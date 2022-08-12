@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Filters from './pages/Filters'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './pages/Home'
+import Mentshirt from './pages/Mentshirt'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/menclothing' element={<div>
           <Navbar/>
           <Filters/>
+          <Mentshirt/>
         </div>}/>
         </Routes>
     </BrowserRouter>
