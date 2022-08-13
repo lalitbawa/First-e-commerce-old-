@@ -1,11 +1,34 @@
 import React from 'react'
 import './filters.css'
+import { useState } from 'react'
+import tshirtdata from '../clothingdata/tshirts.json'
 
 const showFilter = ()=>{
     document.getElementsByClassName('sidebar')[0].classList.toggle('is-active')
 }
 
-const Filters = () => {
+const Filters = (props) => {
+
+const [redVal, setredVal] = useState("none")
+const [blueVal, setblueVal] = useState("none")
+const [greenVal, setgreenVal] = useState("none")
+const [yellowVal, setyellowVal] = useState("none")
+const [whiteVal, setwhiteVal] = useState("none")
+
+let makeBlue = "blue"
+
+const setData = ()=>{
+    props.setTshirtData(
+    tshirtdata.filter( val => val.color === {redVal} || val.color === {yellowVal} || val.color === {greenVal} || val.color==={whiteVal} || val.color==="blue").map(data => (
+      <div  key={data.id}>
+      <img src={data.itemlink} alt="" />
+      <p>color - {data.color} brand - {data.brand} gender - {data.gender}</p>
+      </div>)
+  ))
+
+  console.log(makeBlue)
+}
+
   return (
     <div>
       <button type='submit' className='showfilter' onClick={showFilter}>Show/Hide Filters &rarr;</button>
@@ -15,7 +38,6 @@ const Filters = () => {
             <h4>Brands</h4>
             <div><input type="checkbox" id='sidebar-brand-gucci'/>
             <label htmlFor="sidebar-brand-gucci">Gucci</label></div>
-            
             <div><input type="checkbox" id='sidebar-brand-armani'/>
             <label htmlFor="sidebar-brand-armani">Armani</label></div>
             <div><input type="checkbox" id='sidebar-brand-boss'/>
@@ -42,16 +64,57 @@ const Filters = () => {
         </div>
         <div className='sidebar-color'>
             <h4>Color</h4>
-            <div><input type="checkbox" id='sidebar-color-red'/>
+            <form action="/">
+            <div><input type="checkbox" id='sidebar-color-red' value={redVal} onChange={(e)=>{
+              if(e.target.checked === true){
+                setredVal("red")
+              }
+              else{
+                setredVal("none")
+              }
+            }}/>
             <label htmlFor="sidebar-color-red"><span className='makeitred'>red</span>Red</label></div>
-            <div><input type="checkbox" id='sidebar-color-green'/>
+            <div><input type="checkbox" id='sidebar-color-green' value={greenVal} onChange={(e)=>{
+              if(e.target.checked === true){
+                setgreenVal("green")
+              }
+              else{
+                setgreenVal("none")
+              }
+            }}/>
             <label htmlFor="sidebar-color-green"><span className='makeitgreen'>red</span>Green</label></div>
-            <div><input type="checkbox" id='sidebar-color-blue'/>
-            <label htmlFor="sidebar-color-blue"><span className='makeitblue'>red</span>Blue</label></div>
-            <div><input type="checkbox" id='sidebar-color-yellow'/>
+            <div><input type="checkbox" id='sidebar-color-blue' value={blueVal} onChange={(e)=>{
+              if(e.target.checked === true){
+                setblueVal("blue")
+                makeBlue = "blue"
+                setData()
+              }
+              else{
+                setblueVal("none")
+                makeBlue = "none"
+                setData()
+              }
+            }}/>
+            <label htmlFor="sidebar-color-blue"><span className='makeitblue' >red</span>Blue</label></div>
+            <div><input type="checkbox" id='sidebar-color-yellow' value={yellowVal} onChange={(e)=>{
+              if(e.target.checked === true){
+                setyellowVal("yellow")
+              }
+              else{
+                setyellowVal("none")
+              }
+            }}/>
             <label htmlFor="sidebar-color-yellow"><span className='makeityellow'>red</span>Yellow</label></div>
-            <div><input type="checkbox" id='sidebar-color-white'/>
+            <div><input type="checkbox" id='sidebar-color-white' value={whiteVal} onChange={(e)=>{
+              if(e.target.checked === true){
+                setwhiteVal("white")
+              }
+              else{
+                setwhiteVal("none")
+              }
+            }}/>
             <label htmlFor="sidebar-color-white"><span className='makeitwhite'>red</span>White</label></div>
+            </form>
         </div>
     </div>
     </div>
