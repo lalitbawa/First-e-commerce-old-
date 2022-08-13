@@ -4,11 +4,17 @@ import tshirtdata from '../clothingdata/tshirts.json'
 import { useState } from 'react'
 
 const Mentshirt = () => {
-const [tshirts, setdatas] = useState(tshirtdata.map(
+const [tshirts, settshirts] = useState(tshirtdata.map(
   data => (
-    <img key={data.id} src={data.itemlink} alt="" />
+    <div  key={data.id}>
+    <img src={data.itemlink} alt="" />
+    <p>color - {data.color} brand - {data.brand} gender - {data.gender}</p>
+    </div>
   )
 ))
+
+const blueT = tshirtdata.filter( val => val.color == "blue")
+
 
   return (
     <div className='mentshirt_container'>
