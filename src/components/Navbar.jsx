@@ -66,7 +66,7 @@ const openH = ()=>{
                 <h3>Men</h3>
                 <button type='submit' className='mtopwear' onClick={openMtop}>Top Wear &rarr;</button>
                 <div className='mtopwear-content'>
-                    <a href="#">Tshirts</a>
+                <Link to='/menclothing'>Tshirt</Link>
                     <a href="#">Shirts</a>
                     <a href="#">Jackets</a>
                 </div>
