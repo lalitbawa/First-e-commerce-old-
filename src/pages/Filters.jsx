@@ -1,33 +1,27 @@
 import React from 'react'
 import './filters.css'
-import { useState } from 'react'
-import tshirtdata from '../clothingdata/tshirts.json'
+import { useRef,useEffect } from 'react'
 
 const showFilter = ()=>{
     document.getElementsByClassName('sidebar')[0].classList.toggle('is-active')
 }
 
+
 const Filters = (props) => {
-
-const [redVal, setredVal] = useState("none")
-const [blueVal, setblueVal] = useState("none")
-const [greenVal, setgreenVal] = useState("none")
-const [yellowVal, setyellowVal] = useState("none")
-const [whiteVal, setwhiteVal] = useState("none")
-
-let makeBlue = "blue"
-
-const setData = ()=>{
-    props.setTshirtData(
-    tshirtdata.filter( val => val.color === {redVal} || val.color === {yellowVal} || val.color === {greenVal} || val.color==={whiteVal} || val.color==="blue").map(data => (
-      <div  key={data.id}>
-      <img src={data.itemlink} alt="" />
-      <p>color - {data.color} brand - {data.brand} gender - {data.gender}</p>
-      </div>)
-  ))
-
-  console.log(makeBlue)
-}
+  
+  const redT = useRef()
+  const greenT = useRef()
+  const blueT = useRef()
+  const yellowT = useRef()
+  const whiteT = useRef()
+  
+useEffect(()=>{
+  redT.current.defaultChecked = true
+  greenT.current.defaultChecked = true
+  yellowT.current.defaultChecked = true
+  whiteT.current.defaultChecked = true
+  blueT.current.defaultChecked = true
+},[])
 
   return (
     <div>
@@ -65,52 +59,48 @@ const setData = ()=>{
         <div className='sidebar-color'>
             <h4>Color</h4>
             <form action="/">
-            <div><input type="checkbox" id='sidebar-color-red' value={redVal} onChange={(e)=>{
-              if(e.target.checked === true){
-                setredVal("red")
+            <div><input type="checkbox" id='sidebar-color-red' ref={redT} onClick={(e)=>{
+              if(redT.current.checked === true){
+                document.getElementById("men_red_t").style.display = "inline"
               }
-              else{
-                setredVal("none")
+              else if(redT.current.checked === false){
+                document.getElementById("men_red_t").style.display = "none"
               }
             }}/>
             <label htmlFor="sidebar-color-red"><span className='makeitred'>red</span>Red</label></div>
-            <div><input type="checkbox" id='sidebar-color-green' value={greenVal} onChange={(e)=>{
-              if(e.target.checked === true){
-                setgreenVal("green")
+            <div><input type="checkbox" id='sidebar-color-green' ref={greenT} onClick={(e)=>{
+              if(greenT.current.checked === true){
+                document.getElementById("men_green_t").style.display = "inline"
               }
-              else{
-                setgreenVal("none")
+              else if(greenT.current.checked === false){
+                document.getElementById("men_green_t").style.display = "none"
               }
             }}/>
             <label htmlFor="sidebar-color-green"><span className='makeitgreen'>red</span>Green</label></div>
-            <div><input type="checkbox" id='sidebar-color-blue' value={blueVal} onChange={(e)=>{
-              if(e.target.checked === true){
-                setblueVal("blue")
-                makeBlue = "blue"
-                setData()
+            <div><input type="checkbox" id='sidebar-color-blue' ref={blueT} onClick={(e)=>{
+              if(blueT.current.checked === true){
+                document.getElementById("men_blue_t").style.display = "inline"
               }
-              else{
-                setblueVal("none")
-                makeBlue = "none"
-                setData()
+              else if(blueT.current.checked === false){
+                document.getElementById("men_blue_t").style.display = "none"
               }
             }}/>
             <label htmlFor="sidebar-color-blue"><span className='makeitblue' >red</span>Blue</label></div>
-            <div><input type="checkbox" id='sidebar-color-yellow' value={yellowVal} onChange={(e)=>{
-              if(e.target.checked === true){
-                setyellowVal("yellow")
+            <div><input type="checkbox" id='sidebar-color-yellow' ref={yellowT} onClick={(e)=>{
+              if(yellowT.current.checked === true){
+                document.getElementById("men_yellow_t").style.display = "inline"
               }
-              else{
-                setyellowVal("none")
+              else if(yellowT.current.checked === false){
+                document.getElementById("men_yellow_t").style.display = "none"
               }
             }}/>
             <label htmlFor="sidebar-color-yellow"><span className='makeityellow'>red</span>Yellow</label></div>
-            <div><input type="checkbox" id='sidebar-color-white' value={whiteVal} onChange={(e)=>{
-              if(e.target.checked === true){
-                setwhiteVal("white")
+            <div><input type="checkbox" id='sidebar-color-white' ref={whiteT} onClick={(e)=>{
+              if(whiteT.current.checked === true){
+                document.getElementById("men_white_t").style.display = "inline"
               }
-              else{
-                setwhiteVal("none")
+              else if(whiteT.current.checked === false){
+                document.getElementById("men_white_t").style.display = "none"
               }
             }}/>
             <label htmlFor="sidebar-color-white"><span className='makeitwhite'>red</span>White</label></div>
