@@ -8,7 +8,7 @@ const Mentshirt = () => {
   
 const mensTshirts = tshirtdata.map(
   data => (
-    <div id={data.colorID} key={data.id}>
+    <div key={data.id}>
     <img src={data.itemlink} alt="" />
     <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
     </div>
