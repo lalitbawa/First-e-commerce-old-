@@ -16,14 +16,22 @@ const Filters = (props) => {
   const yellowT = useRef()
   const whiteT = useRef()
   const gucciT = useRef()
-
-  console.log(redT.current)
+  const hackettT = useRef()
 
   const gucciFunc= ()=>{
     if(gucciT.current.checked === true){
       return "gucci"
     }
     if(gucciT.current.checked === false){
+      return "none"
+    }
+  }
+
+  const hackettFunc= ()=>{
+    if(hackettT.current.checked === true){
+      return "hackett"
+    }
+    if(hackettT.current.checked === false){
       return "none"
     }
   }
@@ -74,9 +82,9 @@ const Filters = (props) => {
   }
 
 
-  const makeChange = ()=>{
+  const makeChangeToBrandAndColor = ()=>{
     props.changeMenTee(
-      datamt.filter(val=> val.brand.includes(gucciFunc()) & (val.color.includes(redFunc()) || val.color.includes(greenFunc())|| val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+      datamt.filter(val=> (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc())|| val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
         data => (
           <div key={data.id}>
           <img src={data.itemlink} alt="" />
@@ -87,7 +95,31 @@ const Filters = (props) => {
     )
   }
 
-  // val=> val.brand.includes(gucciFunc()) & val.color.includes(redFunc()) || val.brand.includes(gucciFunc()) & val.color.includes(greenFunc()) || val.brand.includes(gucciFunc()) & val.color.includes(whiteFunc()) || val.brand.includes(gucciFunc()) & val.color.includes(yellowFunc()) || val.brand.includes(gucciFunc()) & val.color.includes(blueFunc())
+  const makeChangeToBrandOnly = ()=>{
+    props.changeMenTee(
+      datamt.filter(val=> val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc())).map(
+        data => (
+          <div key={data.id}>
+          <img src={data.itemlink} alt="" />
+          <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
+          </div>
+        )
+      )
+    )
+  }
+
+  const makeChangeToColorOnly = ()=>{
+    props.changeMenTee(
+      datamt.filter(val=> val.color.includes(redFunc()) || val.color.includes(greenFunc())|| val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc())).map(
+        data => (
+          <div key={data.id}>
+          <img src={data.itemlink} alt="" />
+          <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
+          </div>
+        )
+      )
+    )
+  }
 
   return (
     <div>
@@ -104,7 +136,7 @@ const Filters = (props) => {
             <label htmlFor="sidebar-brand-armani">Armani</label></div>
             <div><input type="checkbox" id='sidebar-brand-boss'/>
             <label htmlFor="sidebar-brand-boss">Boss</label></div>
-            <div><input type="checkbox" id='sidebar-brand-hackett'/>
+            <div><input type="checkbox" id='sidebar-brand-hackett' ref={hackettT}/>
             <label htmlFor="sidebar-brand-hackett">Hackett</label></div>
             <div><input type="checkbox" id='sidebar-brand-lv'/>
             <label htmlFor="sidebar-brand-lv">Louis Vuitton</label></div>
@@ -138,7 +170,17 @@ const Filters = (props) => {
             <div><input type="checkbox" id='sidebar-color-white' ref={whiteT} />
             <label htmlFor="sidebar-color-white"><span className='makeitwhite'>red</span>White</label></div>
             </form>
-            <button type='submit' onClick={(e)=>{makeChange()}}> Test me now</button>
+            <button type='submit' onClick={(e)=>{
+              if((gucciT.current.checked || hackettT.current.checked) === true && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
+                makeChangeToBrandAndColor()
+              }
+              else if((gucciT.current.checked && hackettT.current.checked) === false && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
+                makeChangeToColorOnly()
+              }
+              if((gucciT.current.checked || hackettT.current.checked ) === true && (redT.current.checked || whiteT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked) === false){
+                makeChangeToBrandOnly()
+              }
+            }}> Test me now</button>
         </div>
     </div>
     </div>
