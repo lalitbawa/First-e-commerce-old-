@@ -97,8 +97,7 @@ nav img{
 
 .login-signup button,
 .ham-search button,
-.hupload,
-.showfilter{
+.hupload{
     border: none;
     background-color: rgb(108, 108, 255);
     color: white;

@@ -1,6 +1,6 @@
 import React from 'react'
 import './filters.css'
-import { useRef,useEffect,useState } from 'react'
+import { useRef} from 'react'
 import datamt from '../clothingdata/tshirts.json'
 
 const showFilter = ()=>{
@@ -16,7 +16,11 @@ const Filters = (props) => {
   const yellowT = useRef()
   const whiteT = useRef()
   const gucciT = useRef()
+  const lvT = useRef()
+  const bdT = useRef()
+  const bossT = useRef()
   const hackettT = useRef()
+  const armaniT = useRef()
 
   const gucciFunc= ()=>{
     if(gucciT.current.checked === true){
@@ -32,6 +36,42 @@ const Filters = (props) => {
       return "hackett"
     }
     if(hackettT.current.checked === false){
+      return "none"
+    }
+  }
+  
+  const lvFunc= ()=>{
+    if(lvT.current.checked === true){
+      return "louis_vuitton"
+    }
+    if(lvT.current.checked === false){
+      return "none"
+    }
+  }
+
+  const bossFunc= ()=>{
+    if(bossT.current.checked === true){
+      return "boss"
+    }
+    if(bossT.current.checked === false){
+      return "none"
+    }
+  }
+
+  const armaniFunc= ()=>{
+    if(armaniT.current.checked === true){
+      return "armani"
+    }
+    if(armaniT.current.checked === false){
+      return "none"
+    }
+  }
+
+  const bdFunc= ()=>{
+    if(bdT.current.checked === true){
+      return "beyond_designs"
+    }
+    if(bdT.current.checked === false){
       return "none"
     }
   }
@@ -84,7 +124,7 @@ const Filters = (props) => {
 
   const makeChangeToBrandAndColor = ()=>{
     props.changeMenTee(
-      datamt.filter(val=> (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc())|| val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+      datamt.filter(val=> (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc())|| val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
         data => (
           <div key={data.id}>
           <img src={data.itemlink} alt="" />
@@ -97,7 +137,7 @@ const Filters = (props) => {
 
   const makeChangeToBrandOnly = ()=>{
     props.changeMenTee(
-      datamt.filter(val=> val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc())).map(
+      datamt.filter(val=> val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())).map(
         data => (
           <div key={data.id}>
           <img src={data.itemlink} alt="" />
@@ -123,24 +163,28 @@ const Filters = (props) => {
 
   return (
     <div>
-      <button type='submit' className='showfilter' onClick={showFilter}>Show/Hide Filters &rarr;</button>
+      <div className='filter_button_container'>
+      <button type='submit' className='showfilter' onClick={showFilter}>Filters &rarr;</button>
+      <button type='submit' className='showfilter2' > Sort By &rarr;</button>
+      </div>
     <div className='sidebar'>
         <h3>Filters</h3>
+        <h5 onClick={showFilter}>X  Close Filters</h5>
         <div className='sidebar-brand'>
             <h4>Brands</h4>
             <div><input type="checkbox" id='sidebar-brand-gucci' ref={gucciT} onClick={(e)=>{
               
             }}/>
             <label htmlFor="sidebar-brand-gucci" >Gucci</label></div>
-            <div><input type="checkbox" id='sidebar-brand-armani'/>
+            <div><input type="checkbox" id='sidebar-brand-armani' ref={armaniT}/>
             <label htmlFor="sidebar-brand-armani">Armani</label></div>
-            <div><input type="checkbox" id='sidebar-brand-boss'/>
+            <div><input type="checkbox" id='sidebar-brand-boss' ref={bossT}/>
             <label htmlFor="sidebar-brand-boss">Boss</label></div>
             <div><input type="checkbox" id='sidebar-brand-hackett' ref={hackettT}/>
             <label htmlFor="sidebar-brand-hackett">Hackett</label></div>
-            <div><input type="checkbox" id='sidebar-brand-lv'/>
+            <div><input type="checkbox" id='sidebar-brand-lv' ref={lvT}/>
             <label htmlFor="sidebar-brand-lv">Louis Vuitton</label></div>
-            <div><input type="checkbox" id='sidebar-brand-bd'/>
+            <div><input type="checkbox" id='sidebar-brand-bd' ref={bdT}/>
             <label htmlFor="sidebar-brand-bd">Beyond Designs Handmade</label></div>
         </div>
         <div className='sidebar-price'>
@@ -170,17 +214,17 @@ const Filters = (props) => {
             <div><input type="checkbox" id='sidebar-color-white' ref={whiteT} />
             <label htmlFor="sidebar-color-white"><span className='makeitwhite'>red</span>White</label></div>
             </form>
-            <button type='submit' onClick={(e)=>{
-              if((gucciT.current.checked || hackettT.current.checked) === true && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
+            <button type='submit' className='filter_apply' onClick={(e)=>{
+              if((gucciT.current.checked || hackettT.current.checked || bdT.current.checked || lvT.current.checked ||bossT.current.checked || armaniT.current.checked) === true && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
                 makeChangeToBrandAndColor()
               }
-              else if((gucciT.current.checked && hackettT.current.checked) === false && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
+              else if((gucciT.current.checked && hackettT.current.checked && bdT.current.checked && lvT.current.checked && bossT.current.checked && armaniT.current.checked) === false && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true){
                 makeChangeToColorOnly()
               }
-              if((gucciT.current.checked || hackettT.current.checked ) === true && (redT.current.checked || whiteT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked) === false){
+              if((gucciT.current.checked || hackettT.current.checked || bdT.current.checked || lvT.current.checked ||bossT.current.checked || armaniT.current.checked) === true && (redT.current.checked || whiteT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked) === false){
                 makeChangeToBrandOnly()
               }
-            }}> Test me now</button>
+            }}>Apply Changes</button>
         </div>
     </div>
     </div>
