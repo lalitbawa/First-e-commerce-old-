@@ -12,7 +12,7 @@
         "brand" : "gucci",
         "color" : "white",
         "colorID" : "men_white_t",
-        "price" :600,
+        "price" : 600,
         "item" : "tshirt",
         "gender": "male",
         "itemlink" : "https://media.gucci.com/style/HEXEAF2DC_Center_0_0_800x800/1658339126/708678_XJERS_9133_001_100_0000_Light-Gucci-Lovelight-cotton-T-shirt.jpg"
@@ -66,7 +66,7 @@
         "brand" : "beyond_designs",
         "color" : "white",
         "colorID" : "men_white_t",
-        "price" : 200,
+        "price" : 400,
         "item" : "tshirt",
         "gender": "male",
         "itemlink" : "https://cdn.shopify.com/s/files/1/0752/6435/products/1ST_31b3d8b9-5eba-44d8-bdcd-b8f02b8f23cc_480x.jpg?v=1650635131"

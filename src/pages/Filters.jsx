@@ -213,7 +213,46 @@ const Filters = (props) => {
 
   const makeChangeToPriceOnly = () => {
     props.changeMenTee(
-      datamt.filter(val => (val.price<=(p200Func()) || (val.price >200 && val.price <(p400Func())) || (val.price >400 && val.price <(p600Func())) || (val.price >600 && val.price <(p800Func())) || (val.price >(p1000Func())))).map(
+      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func())))).map(
+        data => (
+          <div key={data.id}>
+            <img src={data.itemlink} alt="" />
+            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
+          </div>
+        )
+      )
+    )
+  }
+
+  const makeChangeToAll = ()=>{
+    props.changeMenTee(
+      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+        data => (
+          <div key={data.id}>
+            <img src={data.itemlink} alt="" />
+            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
+          </div>
+        )
+      )
+    )
+  }
+
+  const makeChangeToPriceAndColor = ()=>{
+    props.changeMenTee(
+      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >(p1000Func()))) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+        data => (
+          <div key={data.id}>
+            <img src={data.itemlink} alt="" />
+            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
+          </div>
+        )
+      )
+    )
+  }
+
+  const makeChangeToBrandAndPrice = ()=>{
+    props.changeMenTee(
+      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc()))).map(
         data => (
           <div key={data.id}>
             <img src={data.itemlink} alt="" />
@@ -278,17 +317,33 @@ const Filters = (props) => {
               <label htmlFor="sidebar-color-white"><span className='makeitwhite'>red</span>White</label></div>
           </form>
           <button type='submit' className='filter_apply' onClick={(e) => {
-            if ((gucciT.current.checked || hackettT.current.checked || bdT.current.checked || lvT.current.checked || bossT.current.checked || armaniT.current.checked) === true && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true) {
+            if ((gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true) && (redT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true || whiteT.current.checked === true) && (p200.current.checked === false && p400.current.checked === false && p600.current.checked === false && p800.current.checked === false && p1000.current.checked === false)) {
+              console.log('makeChangeToBrandAndColor')
               makeChangeToBrandAndColor()
             }
-            else if ((gucciT.current.checked && hackettT.current.checked && bdT.current.checked && lvT.current.checked && bossT.current.checked && armaniT.current.checked) === false && (redT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked || whiteT.current.checked) === true) {
+            else if ((gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false) && (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true) && (p200.current.checked=== false && p400.current.checked=== false && p600.current.checked=== false && p800.current.checked=== false && p1000.current.checked=== false)) {
+              console.log('makeChangeToColorOnly')
               makeChangeToColorOnly()
             }
-            else if ((gucciT.current.checked || hackettT.current.checked || bdT.current.checked || lvT.current.checked || bossT.current.checked || armaniT.current.checked) === true && (redT.current.checked || whiteT.current.checked || yellowT.current.checked || blueT.current.checked || greenT.current.checked) === false) {
+            else if ((gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true) && (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false) && (p200.current.checked=== false && p400.current.checked=== false && p600.current.checked=== false && p800.current.checked=== false && p1000.current.checked=== false)) {
+              console.log("makeChangeToBrandOnly")
               makeChangeToBrandOnly()
             }
-            else if ((p200.current.checked || p400.current.checked || p600.current.checked || p800.current.checked || p1000.current.checked) === true) {
+            else if ((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false)&& (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false)) {
+              console.log('makeChangeToPriceOnly')
               makeChangeToPriceOnly()
+            }
+            else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true)&& (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true)){
+              console.log('makeChangeToAll')
+              makeChangeToAll()
+            }
+            else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false)&& (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true)){
+              console.log('makeChangeToPriceAndColor')
+              makeChangeToPriceAndColor()
+            }
+            else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true)&& (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false)){
+              console.log('makeChangeToBrandAndPrice')
+              makeChangeToBrandAndPrice()
             }
           }}>Apply Changes</button>
         </div>
