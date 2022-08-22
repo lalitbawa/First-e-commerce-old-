@@ -1,12 +1,22 @@
 .mentshirt_container{
-    margin-top: 5rem;
+    margin-top: 8rem;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mentshirt_container_items{
+    display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .mentshirt_container img{
     width: 20rem;
-    height: auto;
+    height: 20rem;
     margin: 1rem;
+}
+
+.mentshirt_container_items_text{
+    font-weight: 600;
 }

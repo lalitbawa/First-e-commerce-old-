@@ -171,16 +171,21 @@ const Filters = (props) => {
     }
   }
 
+  const mapData = (data)=>{
+    return <div key={data.id} className="mentshirt_container_items">
+    <img src={data.itemlink} alt="" />
+    <h3>{data.brand.charAt(0).toUpperCase() + data.brand.slice(1).replaceAll("_"," ")}</h3>
+    <p><span className='mentshirt_container_items_text'>Gender</span>{" - " + data.gender.charAt(0).toUpperCase() + data.gender.slice(1)}</p>
+    <p><span className='mentshirt_container_items_text'>Color</span>{" - " + data.color.charAt(0).toUpperCase() + data.color.slice(1)}</p>
+    <p><span className='mentshirt_container_items_text'>Price (in $)  </span>{" - " + data.price}</p>
+    </div>
+  }
+
 
   const makeChangeToBrandAndColor = () => {
     props.changeMenTee(
       datamt.filter(val => (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -188,12 +193,7 @@ const Filters = (props) => {
   const makeChangeToBrandOnly = () => {
     props.changeMenTee(
       datamt.filter(val => val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -201,12 +201,7 @@ const Filters = (props) => {
   const makeChangeToColorOnly = () => {
     props.changeMenTee(
       datamt.filter(val => val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc())).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -214,12 +209,7 @@ const Filters = (props) => {
   const makeChangeToPriceOnly = () => {
     props.changeMenTee(
       datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func())))).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -227,12 +217,7 @@ const Filters = (props) => {
   const makeChangeToAll = ()=>{
     props.changeMenTee(
       datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -240,12 +225,7 @@ const Filters = (props) => {
   const makeChangeToPriceAndColor = ()=>{
     props.changeMenTee(
       datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >(p1000Func()))) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }
@@ -253,12 +233,7 @@ const Filters = (props) => {
   const makeChangeToBrandAndPrice = ()=>{
     props.changeMenTee(
       datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc()))).map(
-        data => (
-          <div key={data.id}>
-            <img src={data.itemlink} alt="" />
-            <p>color - {data.color} colorid - {data.colorID} brand - {data.brand} gender - {data.gender}</p>
-          </div>
-        )
+        data => mapData(data)
       )
     )
   }

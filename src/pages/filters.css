@@ -1,6 +1,7 @@
 .filter_button_container{
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .showfilter,
@@ -12,16 +13,18 @@
     cursor: pointer;
     position: absolute;
     top: 3rem;
-    width: 12rem;
+    width: 10rem;
     height: 2rem;
     font-weight: 600;
     border-radius: 0px;
 }
 .showfilter{
     left: 30vw;
+    margin-right: 1rem;
 }
 .showfilter2{
     right: 30vw;
+    margin-left: 1rem;
 }
 
 .sidebar{
@@ -121,8 +124,9 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-weight: 800;
+    text-align: center;
     height: 2rem;
+    font-weight: 500;
 }
 
 @media screen and (max-width:550px) {
