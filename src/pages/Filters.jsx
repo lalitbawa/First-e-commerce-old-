@@ -1,15 +1,13 @@
 import React from 'react'
 import './filters.css'
 import { useRef } from 'react'
-import datamt from '../clothingdata/tshirts.json'
-
-const showFilter = () => {
-  document.getElementsByClassName('sidebar')[0].classList.toggle('is-active')
-}
 
 
 const Filters = (props) => {
-
+  
+  const showFilter = () => {
+    document.getElementsByClassName('sidebar')[0].classList.toggle('is-active')
+  }
   const redT = useRef()
   const greenT = useRef()
   const blueT = useRef()
@@ -184,7 +182,7 @@ const Filters = (props) => {
 
   const makeChangeToBrandAndColor = () => {
     props.changeMenTee(
-      datamt.filter(val => (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+      props.datamt.filter(val => (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
         data => mapData(data)
       )
     )
@@ -192,7 +190,7 @@ const Filters = (props) => {
 
   const makeChangeToBrandOnly = () => {
     props.changeMenTee(
-      datamt.filter(val => val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())).map(
+      props.datamt.filter(val => val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())).map(
         data => mapData(data)
       )
     )
@@ -200,7 +198,7 @@ const Filters = (props) => {
 
   const makeChangeToColorOnly = () => {
     props.changeMenTee(
-      datamt.filter(val => val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc())).map(
+      props.datamt.filter(val => val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc())).map(
         data => mapData(data)
       )
     )
@@ -208,7 +206,7 @@ const Filters = (props) => {
 
   const makeChangeToPriceOnly = () => {
     props.changeMenTee(
-      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func())))).map(
+      props.datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func())))).map(
         data => mapData(data)
       )
     )
@@ -216,7 +214,7 @@ const Filters = (props) => {
 
   const makeChangeToAll = ()=>{
     props.changeMenTee(
-      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+      props.datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc())) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
         data => mapData(data)
       )
     )
@@ -224,7 +222,7 @@ const Filters = (props) => {
 
   const makeChangeToPriceAndColor = ()=>{
     props.changeMenTee(
-      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >(p1000Func()))) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
+      props.datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >(p1000Func()))) && (val.color.includes(redFunc()) || val.color.includes(greenFunc()) || val.color.includes(yellowFunc()) || val.color.includes(whiteFunc()) || val.color.includes(blueFunc()))).map(
         data => mapData(data)
       )
     )
@@ -232,7 +230,7 @@ const Filters = (props) => {
 
   const makeChangeToBrandAndPrice = ()=>{
     props.changeMenTee(
-      datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc()))).map(
+      props.datamt.filter(val => (val.price<=(p200Func()) || (val.price >=200 && val.price <=(p400Func())) || (val.price >=400 && val.price <=(p600Func())) || (val.price >=600 && val.price <=(p800Func())) || (val.price >=(p1000Func()))) && (val.brand.includes(gucciFunc()) || val.brand.includes(hackettFunc()) || val.brand.includes(bdFunc()) || val.brand.includes(lvFunc()) || val.brand.includes(bossFunc()) || val.brand.includes(armaniFunc()))).map(
         data => mapData(data)
       )
     )

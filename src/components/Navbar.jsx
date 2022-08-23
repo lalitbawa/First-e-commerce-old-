@@ -31,14 +31,14 @@ const openH = ()=>{
   return (
     <div>
         <nav>
-            <img src={logo} alt="logo" />
+            <Link to='/'><img src={logo} alt="logo" /></Link>
             <div className='nav-links'>
                 <ul>
                     <li>
                         <a href="#">What's New</a>
                     </li>
                     <li>
-                        <Link to='/menclothing'>Men</Link>
+                        <Link to='/menpant'>Men</Link>
                     </li>
                     <li>
                         <a href="#">Women</a>
@@ -66,14 +66,14 @@ const openH = ()=>{
                 <h3>Men</h3>
                 <button type='submit' className='mtopwear' onClick={openMtop}>Top Wear &rarr;</button>
                 <div className='mtopwear-content'>
-                <Link to='/menclothing'>Tshirt</Link>
+                <Link to='/mentshirt'>Tshirt</Link>
                     <a href="#">Shirts</a>
                     <a href="#">Jackets</a>
                 </div>
                 <button type='submit' className='mbottomwear' onClick={openMbot}>Bottom Wear &rarr;</button>
                 <div className='mbottomwear-content'>
                     <a href="#">Jeans</a>
-                    <a href="#">Pants</a>
+                    <Link to='/menpant'>Pants</Link>
                     <a href="#">Shorts</a>
                 </div>
             </div>

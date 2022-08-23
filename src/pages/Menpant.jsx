@@ -1,12 +1,12 @@
 import React from 'react'
 import './mentshirt.css'
-import tshirtdata from '../clothingdata/tshirts.json'
+import pantdata from '../clothingdata/pants.json'
 import Filters from './Filters'
 import { useState } from 'react'
 
-const Mentshirt = () => {
+const Menpant = () => {
   
-const mensTshirts = tshirtdata.map(
+const mensTshirts = pantdata.map(
   data => (
     <div key={data.id} className="mentshirt_container_items">
     <img src={data.itemlink} alt="" />
@@ -18,10 +18,11 @@ const mensTshirts = tshirtdata.map(
   )
 )
 const [menTee,setmenTee] = useState(mensTshirts)
+  
 
   return (
     <div>
-      <Filters datamt = {tshirtdata} changeMenTee = {setmenTee}/>
+      <Filters datamt = {pantdata} changeMenTee = {setmenTee}/>
     <div className='mentshirt_container'>
         {
             menTee
@@ -31,4 +32,4 @@ const [menTee,setmenTee] = useState(mensTshirts)
   )
 }
 
-export default Mentshirt
+export default Menpant
