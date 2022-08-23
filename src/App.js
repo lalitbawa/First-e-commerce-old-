@@ -5,6 +5,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Mentshirt from './pages/Mentshirt'
 import Menpant from './pages/Menpant'
+import ShowItem from './pages/ShowItem'
 
 const App = () => {
   return (
@@ -18,6 +19,10 @@ const App = () => {
         <Route path='/menpant' element={<div>
           <Navbar/>
           <Menpant/>
+        </div>}/>
+        <Route path='/showitem' element={<div>
+          <Navbar/>
+          <ShowItem/>
         </div>}/>
         </Routes>
     </BrowserRouter>
