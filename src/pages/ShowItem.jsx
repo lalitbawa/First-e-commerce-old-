@@ -1,9 +1,12 @@
 import React from 'react'
 import './showitem.css'
 
-const ShowItem = () => {
+
+const ShowItem = (props) => {
+
+
   return (
-    <div className='testshowitem'><h1>showwwwo</h1></div>
+    <div className='testshowitem'></div>
   )
 }
 
