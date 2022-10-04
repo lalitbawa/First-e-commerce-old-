@@ -319,6 +319,7 @@ const Filters = (props) => {
               makeChangeToBrandAndPrice()
             }
           }}>Apply Changes</button>
+          <button className='filter_apply' type='submit'>Reset Filters</button>
         </div>
       </div>
     </div>
