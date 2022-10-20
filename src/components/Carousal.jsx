@@ -50,7 +50,7 @@ const Carousal = () => {
           </div>
         </div>
         <div className='review_content'>
-            <p>Enjoyed staying: location is great, not far from a subway station and only 15 minutes ride from all the sights. There are lots of restaurants and shops nearby. Cheerful and welcoming atmosphere. Thanks for the hospitality.</p>
+            <p>review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 review 1 revie</p>
             <h5>Clark jones rated his experience as</h5>
             <img src={rating} alt="rating" />
         </div>
@@ -67,7 +67,7 @@ const Carousal = () => {
           </div>
         </div>
         <div className='review_content'>
-            <p>Enjoyed staying: location is great, not far from a subway station and only 15 minutes ride from all the sights. There are lots of restaurants and shops nearby. Cheerful and welcoming atmosphere. Thanks for the hospitality.</p>
+            <p>review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 review 2 revie</p>
             <h5>abcd rated his experience as</h5>
             <img src={rating} alt="rating" />
         </div>
@@ -84,7 +84,7 @@ const Carousal = () => {
           </div>
         </div>
         <div className='review_content'>
-            <p>Enjoyed staying: location is great, not far from a subway station and only 15 minutes ride from all the sights. There are lots of restaurants and shops nearby. Cheerful and welcoming atmosphere. Thanks for the hospitality.</p>
+            <p>review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 review 3 revie</p>
             <h5>wxyz rated his experience as</h5>
             <img src={rating} alt="rating" />
         </div>
