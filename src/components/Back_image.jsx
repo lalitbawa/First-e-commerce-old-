@@ -6,7 +6,7 @@ const Back_image = () => {
   return (
       <div className='image_back'>
         <img src={back_img} alt="back_image"  />
-        <h2>EXPLORE OUR LATEST TRENDS -{'>'}</h2>
+        <h2>Exclusively for Men</h2>
       </div>
   )
 }

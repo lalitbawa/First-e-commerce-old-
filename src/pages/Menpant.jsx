@@ -21,10 +21,9 @@ const mensTshirts = pantdata.map(
   data => (
     <div key={data.id} className="mentshirt_container_items">
     <img src={data.itemlink} alt="" typeof='submit' onClick={()=>{
-      // setdataSendPant(data.id)
       dataToShowItem = data.id
       routeChange()
-    }} />
+    }}/>
     <h3>{data.brand.charAt(0).toUpperCase() + data.brand.slice(1).replaceAll("_"," ")}</h3>
     <p><span className='mentshirt_container_items_text'>Gender</span>{" - " + data.gender.charAt(0).toUpperCase() + data.gender.slice(1)}</p>
     <p><span className='mentshirt_container_items_text'>Color</span>{" - " + data.color.charAt(0).toUpperCase() + data.color.slice(1)}</p>

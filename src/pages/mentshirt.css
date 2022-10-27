@@ -16,6 +16,7 @@
     width: 20rem;
     height: 20rem;
     margin: 1rem;
+    cursor: pointer;
 }
 
 .mentshirt_container_items_text{
@@ -30,8 +31,4 @@
     height: 2.2rem;
     width: 70%;
     margin-top: 1rem;
-}
-
-#something{
-    margin-top: 3rem;
 }

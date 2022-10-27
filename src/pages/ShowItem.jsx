@@ -2,16 +2,32 @@ import React from 'react'
 import './showitem.css'
 import { useLocation , useNavigate } from 'react-router-dom'
 import pantdata from '../clothingdata/pants.json'
+import tshirtdata from '../clothingdata/tshirts.json'
 
 
 
 const ShowItem = () => {
 
+console.log(pantdata.length)
+
 const location = useLocation();
 
 const navigate = useNavigate()
 
-  const mensTshirts = pantdata.filter(data =>(data.id === location.state.id)).map(
+let goBackButton;
+
+const dataSort = ()=>{
+  if(location.state.id <=pantdata.length){
+    goBackButton = '/mentshirt'
+    return tshirtdata
+  }
+  else if(location.state.id >pantdata.length){
+    goBackButton = '/menpant'
+    return pantdata
+  }
+}
+
+  const mensTshirts = (dataSort().filter(data =>(data.id === location.state.id))).map(
     data => (
       <div key={data.id} className="mentshirt_container_items">
       <img src={data.itemlink} alt=""/>
@@ -19,10 +35,10 @@ const navigate = useNavigate()
       <p><span className='mentshirt_container_items_text'>Gender</span>{" - " + data.gender.charAt(0).toUpperCase() + data.gender.slice(1)}</p>
       <p><span className='mentshirt_container_items_text'>Color</span>{" - " + data.color.charAt(0).toUpperCase() + data.color.slice(1)}</p>
       <p><span className='mentshirt_container_items_text'>Price (in $)  </span>{" - " + data.price}</p>
-      <button type='submit' onClick={()=>{
+      <button type='submit' className='showdetails_goback showdetails_goback2' onClick={()=>{
         console.log("you pressed add to cart");
       }}>Add to Cart</button>
-      <button type='submit'>
+      <button type='submit' className='showdetails_goback showdetails_goback2'>
       Remove from Cart
       </button>
       </div>
@@ -30,8 +46,8 @@ const navigate = useNavigate()
   )
 
   return (
-    <div>
-      <div><button type='submit' id='something' onClick={()=>{navigate('/menpant')}} >Go back</button></div>
+    <div className='showitem_main'>
+      <div><button type='submit' className='showdetails_goback' onClick={()=>{navigate(goBackButton)}} >Go back</button></div>
     <div>{mensTshirts}</div>
     </div>
   )

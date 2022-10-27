@@ -38,10 +38,10 @@ const openH = ()=>{
                         <a href="#">What's New</a>
                     </li>
                     <li>
-                        <Link to='/menpant'>Men</Link>
+                        <Link to='/mentshirt'>Men's Topwear</Link>
                     </li>
                     <li>
-                        <a href="#">Women</a>
+                    <Link to='/menpant'>Men's Bottom wear</Link>
                     </li>
                     <li>
                         <a href="#">Handmade</a>
@@ -66,20 +66,20 @@ const openH = ()=>{
                 <h3>Men</h3>
                 <button type='submit' className='mtopwear' onClick={openMtop}>Top Wear &rarr;</button>
                 <div className='mtopwear-content'>
-                <Link to='/mentshirt'>Tshirt</Link>
-                    <a href="#">Shirts</a>
-                    <a href="#">Jackets</a>
+                <Link to='/mentshirt' onClick={ham_but}>Tshirts</Link>
+                    <a href="#"><span className='coming_soon'>Shirts - COMING SOON</span></a>
+                    <a href="#" className='coming_soon'><span className='coming_soon'>Jackets - COMING SOON</span></a>
                 </div>
                 <button type='submit' className='mbottomwear' onClick={openMbot}>Bottom Wear &rarr;</button>
                 <div className='mbottomwear-content'>
-                    <a href="#">Jeans</a>
-                    <Link to='/menpant'>Pants</Link>
-                    <a href="#">Shorts</a>
+                    <a href="#" className='coming_soon'><span className='coming_soon'>Jeans - COMING SOON</span></a>
+                    <Link to='/menpant'  onClick={ham_but}>Pants</Link>
+                    <a href="#" className='coming_soon'><span className='coming_soon'>Shorts - COMING SOON</span></a>
                 </div>
             </div>
             <div className='ham-items-women'>
-                <h3>Women</h3>
-                <button type='submit' className='wtopwear' onClick={openWtop}>Top Wear &rarr;</button>
+                <h3>Designed just for Men</h3>
+                {/* <button type='submit' className='wtopwear' onClick={openWtop}>Top Wear &rarr;</button>
                 <div className='wtopwear-content'>
                     <a href="#">Tops</a>
                     <a href="#">Shirts</a>
@@ -90,13 +90,13 @@ const openH = ()=>{
                     <a href="#">Jeans</a>
                     <a href="#">Pants</a>
                     <a href="#">Shorts</a>
-                </div>
+                </div> */}
             </div>
             <div className='ham-items-handmade'>
                 <h2>Beyond Designs Handmade</h2>
                 <button type='submit' className='hwear' onClick={openH}><h4>Explore  &rarr;</h4></button>
                 <div className='hwear-content'>
-                    <input type="text" placeholder='Select your Design' />
+                    <input type="text" placeholder=' Paste links here' />
                     <button type='submit' className='hupload'>Upload and get a quote</button>
                 </div>
             </div>
