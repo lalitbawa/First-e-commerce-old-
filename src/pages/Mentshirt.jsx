@@ -3,7 +3,7 @@ import './mentshirt.css'
 import tshirtdata from '../clothingdata/tshirts.json'
 import Filters from './Filters'
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Mentshirt = () => {
 
