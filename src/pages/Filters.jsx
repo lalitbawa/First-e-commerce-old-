@@ -8,6 +8,11 @@ const Filters = (props) => {
   const showFilter = () => {
     document.getElementsByClassName('sidebar')[0].classList.toggle('is-active')
   }
+
+  const showSortBtn = () => {
+    document.getElementsByClassName('hidden_filter_btn')[0].classList.toggle('isactive2')
+  }
+
   const redT = useRef()
   const greenT = useRef()
   const blueT = useRef()
@@ -236,11 +241,41 @@ const Filters = (props) => {
     )
   }
 
+  let sortedArray = props.datamt.slice(0).sort((a,b)=>{
+    return a.price - b.price
+  })
+
+  const lowToHigh = ()=>{
+    props.changeMenTee(sortedArray.map(data => mapData(data)))
+  }
+
+  let sortedArray2 = props.datamt.slice(0).sort((a,b)=>{
+    return b.price - a.price
+  })
+
+  const highToLow = ()=>{
+    props.changeMenTee(sortedArray2.map(data => mapData(data)))
+  }
+
+  const resetFilter = ()=>{
+    props.changeMenTee(props.datamt.map(data=>mapData(data)))
+  }
+
   return (
     <div>
       <div className='filter_button_container'>
         <button type='submit' className='showfilter' onClick={showFilter}>Filters &rarr;</button>
-        <button type='submit' className='showfilter2' > Sort By &rarr;</button>
+        <button type='submit' className='showfilter2' onClick={showSortBtn}> Sort By &rarr;</button>
+      </div>
+      <div className='hidden_filter_btn'>
+        <button type='submit' onClick={()=>{
+          lowToHigh()
+          showSortBtn()
+        }}>Low to High</button>
+        <button type='submit' onClick={()=>{
+          highToLow()
+          showSortBtn()
+        }}>High to Low</button>
       </div>
       <div className='sidebar'>
         <h3>Filters</h3>
@@ -291,35 +326,29 @@ const Filters = (props) => {
           </form>
           <button type='submit' className='filter_apply' onClick={(e) => {
             if ((gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true) && (redT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true || whiteT.current.checked === true) && (p200.current.checked === false && p400.current.checked === false && p600.current.checked === false && p800.current.checked === false && p1000.current.checked === false)) {
-              console.log('makeChangeToBrandAndColor')
               makeChangeToBrandAndColor()
             }
             else if ((gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false) && (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true) && (p200.current.checked=== false && p400.current.checked=== false && p600.current.checked=== false && p800.current.checked=== false && p1000.current.checked=== false)) {
-              console.log('makeChangeToColorOnly')
               makeChangeToColorOnly()
             }
             else if ((gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true) && (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false) && (p200.current.checked=== false && p400.current.checked=== false && p600.current.checked=== false && p800.current.checked=== false && p1000.current.checked=== false)) {
-              console.log("makeChangeToBrandOnly")
               makeChangeToBrandOnly()
             }
             else if ((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false)&& (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false)) {
-              console.log('makeChangeToPriceOnly')
               makeChangeToPriceOnly()
             }
             else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true)&& (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true)){
-              console.log('makeChangeToAll')
               makeChangeToAll()
             }
             else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === false && hackettT.current.checked === false && bdT.current.checked === false && lvT.current.checked === false && bossT.current.checked === false && armaniT.current.checked === false)&& (redT.current.checked === true || whiteT.current.checked === true || yellowT.current.checked === true || blueT.current.checked === true || greenT.current.checked === true)){
-              console.log('makeChangeToPriceAndColor')
               makeChangeToPriceAndColor()
             }
             else if((p200.current.checked === true || p400.current.checked === true || p600.current.checked === true || p800.current.checked === true || p1000.current.checked === true) && (gucciT.current.checked === true || hackettT.current.checked === true || bdT.current.checked === true || lvT.current.checked === true || bossT.current.checked === true || armaniT.current.checked === true)&& (redT.current.checked === false && whiteT.current.checked === false && yellowT.current.checked === false && blueT.current.checked === false && greenT.current.checked === false)){
-              console.log('makeChangeToBrandAndPrice')
               makeChangeToBrandAndPrice()
             }
-          }}>Apply Changes</button>
-          <button className='filter_apply' type='submit'>Reset Filters</button>
+          showFilter()}}>Apply Changes</button>
+          <button className='filter_apply' type='submit' onClick={()=>{resetFilter()
+          showFilter()}}>Reset Filters</button>
         </div>
       </div>
     </div>
