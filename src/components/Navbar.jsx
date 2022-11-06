@@ -38,16 +38,19 @@ const openH = ()=>{
                         <a href="#">What's New</a>
                     </li>
                     <li>
-                        <Link to='/mentshirt'>Men's Topwear</Link>
+                        <Link to='/mentshirt'>Topwear</Link>
                     </li>
                     <li>
-                    <Link to='/menpant'>Men's Bottom wear</Link>
+                    <Link to='/menpant'>Bottom wear</Link>
                     </li>
                     <li>
                         <a href="#">Handmade</a>
                     </li>
                 </ul>
             </div>
+                    <div className='nav_cart'>
+                        <Link style={{color:'white',fontWeight:'500',textDecoration:'none'}} to={'/cart'}>Cart <span>0</span></Link>
+                    </div>
             <button className='ham' onClick={ham_but}>
                 <div className='bar'></div>
             </button>
@@ -79,18 +82,6 @@ const openH = ()=>{
             </div>
             <div className='ham-items-women'>
                 <h3>Designed just for Men</h3>
-                {/* <button type='submit' className='wtopwear' onClick={openWtop}>Top Wear &rarr;</button>
-                <div className='wtopwear-content'>
-                    <a href="#">Tops</a>
-                    <a href="#">Shirts</a>
-                    <a href="#">Jackets</a>
-                </div>
-                <button type='submit' className='wbottomwear' onClick={openWbot}>Bottom Wear &rarr;</button>
-                <div className='wbottomwear-content'>
-                    <a href="#">Jeans</a>
-                    <a href="#">Pants</a>
-                    <a href="#">Shorts</a>
-                </div> */}
             </div>
             <div className='ham-items-handmade'>
                 <h2>Beyond Designs Handmade</h2>

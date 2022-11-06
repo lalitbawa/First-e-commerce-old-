@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Mentshirt from './pages/Mentshirt'
 import Menpant from './pages/Menpant'
 import ShowItem from './pages/ShowItem'
+import Cart from './pages/Cart'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Navbar/>
           <ShowItem/>
         </div>}/>
+        <Route path='/cart' element = {<Cart/>} />
         </Routes>
     </BrowserRouter>
   )

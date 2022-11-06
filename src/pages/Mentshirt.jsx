@@ -10,10 +10,16 @@ const Mentshirt = () => {
 const navigate = useNavigate()
 
 let dataToShowItem = 0;
+let dataToCart = 0;
 
 const routeChange = ()=>{
   let path = '/showitem'
 navigate(path,{state:{id : dataToShowItem}})
+}
+
+const routeChangeCart = ()=>{
+  let path = '/cart'
+navigate(path,{state:{id : dataToCart}})
 }
   
 const mensTshirts = tshirtdata.map(
@@ -28,7 +34,8 @@ const mensTshirts = tshirtdata.map(
     <p><span className='mentshirt_container_items_text'>Color</span>{" - " + data.color.charAt(0).toUpperCase() + data.color.slice(1)}</p>
     <p><span className='mentshirt_container_items_text'>Price (in $)  </span>{" - " + data.price}</p>
     <button type='submit' onClick={()=>{
-      console.log("you pressed add to cart");
+      dataToCart = data.id
+      routeChangeCart()
     }}>Add to Cart</button>
     <button type='submit'>
     Remove from Cart

@@ -192,6 +192,13 @@ nav img{
     font-size: 0.8rem;
 }
 
+.nav_cart{
+    background-color: rgb(108, 108, 255);
+    height: 2rem;
+    width: 5rem;
+    text-align: center;
+}
+
 @media screen and (max-width:550px) {
     .nav-links{
         display: none;

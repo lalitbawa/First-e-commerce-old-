@@ -8,8 +8,6 @@ import tshirtdata from '../clothingdata/tshirts.json'
 
 const ShowItem = () => {
 
-console.log(pantdata.length)
-
 const location = useLocation();
 
 const navigate = useNavigate()
